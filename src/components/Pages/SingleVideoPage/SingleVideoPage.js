@@ -1,19 +1,19 @@
 import '../../Layouts/RightBar.css';
 import './SingleVideoPage.css'
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import Layout from '../../Layouts/Layout';
 import { VideoLibraryContext } from '../../../contexts/VideoLibraryContext';
 import { useParams } from 'react-router-dom';
 import ColumnProductList from '../../Card/ColumnProductList/ColumnProductList';
-import { BinIcon, Clock2Icon, ClockIcon, CrossIcon,  PenIcon, PlayListAddIcon, PlayListIcon, PlusIcon } from '../../Icons';
-import { Box, ChakraProvider, Flex, Input } from '@chakra-ui/react';
-import {
-    Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverFooter, PopoverArrow, PopoverCloseButton,  Portal, Button} from '@chakra-ui/react'
+import { BinIcon, Clock2Icon, ClockIcon,  PenIcon, PlayListAddIcon, PlayListIcon, PlusIcon } from '../../Icons';
+// import { Box, ChakraProvider, Flex, Input } from '@chakra-ui/react';
+// import {
+//     Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverFooter, PopoverArrow, PopoverCloseButton,  Portal, Button} from '@chakra-ui/react'
 
 const SingleVideoPage = () => {
     const { videoID } = useParams();
     const { videos, dispatchVideos, videoActions, dispatchVideoActions } = useContext(VideoLibraryContext);
-    const [ note, setNote ] = useState('');
+    // const [ note, setNote ] = useState('');
     // const [ newPlaylist, setNewPlaylist ] = useState({name: "", caption: ""})
 
     const currVideo = videos.videos.find(({_id})=> 
@@ -47,12 +47,12 @@ const SingleVideoPage = () => {
         dispatchVideoActions({type: 'DELETE_NOTE', payload: {id: videoID, index: index}});
     } 
 
-    const addNoteHandler = () => {
-        dispatchVideoActions({type: 'ADD_NOTE', payload: {id: videoID, note: note}});
-        setNote('');
-    }
+    // const addNoteHandler = () => {
+    //     dispatchVideoActions({type: 'ADD_NOTE', payload: {id: videoID, note: note}});
+    //     setNote('');
+    // }
 
-    const noteChangeHandler = (event) => setNote(event.target.value);
+    // const noteChangeHandler = (event) => setNote(event.target.value);
 
     return <Layout>
         <div className='mainDiv'>
@@ -73,7 +73,7 @@ const SingleVideoPage = () => {
                             { presentInWatchList ? <Clock2Icon className='videoInfo-svg' /> : <ClockIcon className='videoInfo-svg' />}
                         </div>
 
-                        <ChakraProvider>
+                        {/* <ChakraProvider>
                         <Popover>
                         <PopoverTrigger>
                             <Button><PlayListAddIcon className='videoInfo-svg' /></Button>
@@ -118,7 +118,9 @@ const SingleVideoPage = () => {
                         </PopoverContent>
                     </Portal>
                     </Popover>
-                        </ChakraProvider>
+                        </ChakraProvider> */}
+                        <div><PlayListAddIcon className='videoInfo-svg' /></div>
+                        <div><PlayListIcon className='videoInfo-svg' /></div>
                     </div>
                 </div>
                 <hr></hr>
