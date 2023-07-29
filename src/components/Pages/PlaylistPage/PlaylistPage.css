@@ -1,0 +1,28 @@
+.playlist-title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.playlist-heading{
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.playlist-container{
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.playlist-add-div{
+    display: inline-block;
+}
+
+.playlist-add{
+    height: 1.5rem;
+    padding: 0.5rem;
+    border: 3px solid black;
+    border-radius: 50%;
+}

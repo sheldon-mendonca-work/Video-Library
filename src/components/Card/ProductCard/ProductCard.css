@@ -1,0 +1,144 @@
+.productcard-card{
+    width: 17rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.productcard-card:hover{
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+    transform: translateY(-2px);
+}
+
+.productcard-img{
+    height: 13rem;
+    overflow: hidden;
+}
+
+.productcard-card-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.productcard-content{
+    text-align: left;
+    padding: 5px 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.productcard-content>h4{
+    display: inline-block;
+}
+
+.productcard-card-name{
+    padding: 0.5rem;
+    margin: 0;
+}
+
+.productcard-cross{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.5rem;
+    background-color: white;
+    padding: 0.5rem;
+}
+
+.productcard-cross:hover{
+   background-color: rgba(0,0,0,0.3);
+}
+
+/* ----------------- */
+
+.videoproductcard-content{
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    grid-template-rows: 5rem 1fr 1fr;
+    padding: 0.5rem 5px;
+}
+
+.videocard-pic-div{
+    grid-column: 1/2;
+    grid-row: 1/-1;
+}
+
+.videocard-pic-span{
+    width: 70%;
+    aspect-ratio: 1;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    object-position: center;
+}
+
+.videocard-pic{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.videocard-title{
+    grid-column: 2/-1;
+    grid-row: 1/2;
+    text-align: left;
+    font-weight: 700;
+    padding: 3px 0;
+}
+
+.videocard-category{
+    grid-column: 2/-1;
+    grid-row: 2/3;
+    text-align: left;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+}
+
+.videocard-views{
+    grid-column: 2/-1;
+    grid-row: 3/4;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+.videocard-watch{
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    z-index: 2;
+    padding: 0.5rem;
+    background-color: #fff;
+    border-bottom-left-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.videocard-watch:hover{
+    background-color: rgba(0,0,0,0.3);
+}
+
+.videocard-svg{
+    height: 1.5rem;
+    color: rgb(73, 160, 235);
+}
+
+/* --------------- */
+.playlist-content{
+    padding: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.playlist-name{
+    font-weight: 700;
+}
+
+.playlist-caption{
+    color: rgba(0,0,0,0.3);
+}
