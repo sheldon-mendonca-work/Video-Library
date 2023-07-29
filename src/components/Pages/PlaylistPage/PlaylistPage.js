@@ -6,7 +6,7 @@ import './PlaylistPage.css'
 import { VideoLibraryContext } from "../../../contexts/VideoLibraryContext";
 const PlaylistPage = () => {
 
-    const { videoActions, dispatchVideoActions } = useContext(VideoLibraryContext);
+    const { videoActions } = useContext(VideoLibraryContext);
 
     return <Layout>
         <div className="playlist-title">

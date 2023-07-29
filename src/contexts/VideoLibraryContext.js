@@ -1,5 +1,4 @@
-import { createContext, useReducer, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { createContext, useReducer } from "react";
 import { categories } from "../backend/categories";
 import { videos } from "../backend/videos";
 
@@ -66,24 +65,22 @@ const actionsReducerFunction = (state, action) => {
         const newNotes = state.notes[action.payload.id].splice(action.payload.index, 1);
         let newState = state;
         newState.notes[action.payload.id] = newNotes;
-        console.log(newState)
         return {...state, state: newState};
     }
 
-    if(action.type === "ADD_NOTE"){
-        const present = false;
-        for(let key in state.notes){
-            if(key === action.payload.id){
-                present = true;
-            break;}
-        }
-        return {...state, state: newState};
-    }
+    // if(action.type === "ADD_NOTE"){
+    //     const present = false;
+    //     for(let key in state.notes){
+    //         if(key === action.payload.id){
+    //             present = true;
+    //         break;}
+    //     }
+    //     return {...state, state: newState};
+    // }
     return state;
 }
 
 export const VideoLibraryProvider = ({children}) => {
-    const navigate = useNavigate();
 
     const [ videos, dispatchVideos ] = useReducer(videoReducerFunction, initVideoState);
     const [ categories, dispatchCategories ] = useReducer(categoryReducerFunction, initCategoryState);

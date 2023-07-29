@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 
 const SinglePlaylist = () => {
     const { playlistID } = useParams();
-    const { videos, videoActions, dispatchVideoActions } = useContext(VideoLibraryContext);
+    const { videos, videoActions } = useContext(VideoLibraryContext);
 
     const currPlaylist = videoActions.playlist.find(({_id})=>_id === +playlistID)
 

@@ -1,18 +1,20 @@
 import '../../Layouts/RightBar.css';
 import './SingleVideoPage.css'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Layout from '../../Layouts/Layout';
 import { VideoLibraryContext } from '../../../contexts/VideoLibraryContext';
 import { useParams } from 'react-router-dom';
 import ColumnProductList from '../../Card/ColumnProductList/ColumnProductList';
-import { BinIcon, Clock2Icon, ClockIcon, CrossIcon, EditIcon, PenIcon, PlayListAddIcon, PlayListIcon, PlusIcon } from '../../Icons';
+import { BinIcon, Clock2Icon, ClockIcon, CrossIcon,  PenIcon, PlayListAddIcon, PlayListIcon, PlusIcon } from '../../Icons';
 import { Box, ChakraProvider, Flex, Input } from '@chakra-ui/react';
 import {
-    Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverFooter, PopoverArrow, PopoverCloseButton, PopoverAnchor, Portal, Button} from '@chakra-ui/react'
+    Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverFooter, PopoverArrow, PopoverCloseButton,  Portal, Button} from '@chakra-ui/react'
 
 const SingleVideoPage = () => {
     const { videoID } = useParams();
     const { videos, dispatchVideos, videoActions, dispatchVideoActions } = useContext(VideoLibraryContext);
+    const [ note, setNote ] = useState('');
+    // const [ newPlaylist, setNewPlaylist ] = useState({name: "", caption: ""})
 
     const currVideo = videos.videos.find(({_id})=> 
         _id === +videoID
@@ -45,11 +47,18 @@ const SingleVideoPage = () => {
         dispatchVideoActions({type: 'DELETE_NOTE', payload: {id: videoID, index: index}});
     } 
 
+    const addNoteHandler = () => {
+        dispatchVideoActions({type: 'ADD_NOTE', payload: {id: videoID, note: note}});
+        setNote('');
+    }
+
+    const noteChangeHandler = (event) => setNote(event.target.value);
+
     return <Layout>
         <div className='mainDiv'>
             <div className='centerDiv'>
                 <div>
-                    <iframe src={currVideo?.src} className='yt-embed'>
+                    <iframe src={currVideo?.src} title={currVideo?.title} className='yt-embed'>
                     </iframe>
                 </div>
                 <div className='videoInfo'>
@@ -103,8 +112,8 @@ const SingleVideoPage = () => {
                         <PopoverHeader>Add Note</PopoverHeader>
                         <PopoverCloseButton />
                         <PopoverBody>
-                            <Input placeholder='Enter Note' />
-                            <Button colorScheme='blue'>Add Note</Button>
+                            <Input placeholder='Enter Note' value={note} onChange={noteChangeHandler}/>
+                            <Button colorScheme='blue' onClick={addNoteHandler}>Add Note</Button>
                         </PopoverBody>
                         </PopoverContent>
                     </Portal>

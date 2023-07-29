@@ -1,5 +1,5 @@
 import './SearchBar.css';
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CrossIcon2, SearchIcon } from "../../components/Icons";
 import { VideoLibraryContext } from '../../contexts/VideoLibraryContext';
 import { useNavigate } from 'react-router-dom';
